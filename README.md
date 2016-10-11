@@ -1,17 +1,14 @@
-Ionic Framework Starter
+Domotic App
 =============================
 
-Starter project for building Cordova app using [__Intel XDK__](http://xdk.intel.com) using [_Ionic Framework + AngularJS_](http://ionicframework.com/).
+Description
 
-Getting started
--
-- Download this project
-- __Download__ free [Intel XDK](http://xdk.intel.com)
-- In Intel XDK -> Start New project -> __Import Project__ and point to this project folder
-- Checkout the project in Editor, test on Emulator and device.
-- Use Build tab to build apps for iOS, Android...
+The app is desinged for Android devices and it's meant to communicate with an Arduino device over internet
+so you can control some features of your intelligent house.
 
-Documentation
--
-- [Intel XDK Overview](http://software.intel.com/en-us/html5/xdkdocs)
+The communication is very simple because it's made with params in the URL. This project contains just the client side code.
+The communication is through the [Hardvolk](http://hardvolk.com) server but it's easy to replace for the server of your choice in the app.js file.
+
+This project has the core based on the [Ionic Framework](http://ionicframework.com/) and the tool used to code the app 
+was [Intel XDK Overview](http://software.intel.com/en-us/html5/xdkdocs).
 
