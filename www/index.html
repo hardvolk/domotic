@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="domoticApp">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+  <title>Domotic Project</title>
+
+  <!-- Ionic framework - replace the CDN links with local files and build -->    
+  <link href="lib/ionicframework/ionic.min.css" rel="stylesheet">
+    <!--<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="icon">-->
+  <script src="lib/ionicframework/ionic.bundle.min.js"></script>
+    
+  <script src="js/app.js"></script>
+    
+  <script src="cordova.js"></script>
+
+  <style>
+      .box {height:300px;padding: 10px}
+      .Desconectado{color: #b71c1c}
+      .Conectado{color: #8bc34a}
+      .alarm-on{background-color: #e53935 }
+  </style>      
+</head>
+
+<body ng-class="Micro.alarmState" ng-controller="AppCtrl">
+
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">Casa Inteligente</h1>
+    </ion-header-bar>
+    <ion-content padding="true">        <!--    Inicia Contenido principal  -->
+        <div class="card">  <!--    Sección de Estado       -->
+          <div class="item item-divider">
+            Estado Actual
+          </div>
+          <div class="item item-text-wrap">
+            <h2 id="txtState" ng-class="Micro.state">{{Micro.state}}</h2>
+          </div>
+        </div>
+        
+        <!--    Panel de Control    -->
+        <div class="card">
+            <ul class="list">
+                <h2 class="title positive">Panel de Control</h2>
+                <li class="item item-toggle">
+                    <i class="ion-monitor"></i>
+                    TV
+                 <label class="toggle toggle-assertive">
+                   <input ng-model="Micro.tv" ng-change="ChangeHandler('tv')" type="checkbox">  <!--    TV  -->
+                   <div class="track">
+                     <div class="handle"></div>
+                   </div>
+                 </label>
+                </li>
+                <div class="item item-divider">
+                    <i class="ion-thermometer"></i>
+                    Temperatura
+                </div>
+                <div class="item range range-positive">
+                    <i class="icon ion-ios-partlysunny-outline"></i>
+                    <input ng-model="Micro.weather" ng-change="ChangeHandler('weather')" type="range" name="volume" min="0" max="40">
+                    <i class="icon ion-ios-partlysunny"></i>
+                </div>
+                <li class="item item-toggle">
+                    <i class="ion-lightbulb"></i>
+                    Luces
+                 <label class="toggle toggle-assertive">
+                   <input ng-model="Micro.lights" ng-change="ChangeHandler('lights')" type="checkbox">  <!--    Lights   -->
+                   <div class="track">
+                     <div class="handle"></div>
+                   </div>
+                 </label>
+                </li>
+                <li class="item item-toggle">
+                    <i class="ion-log-in"></i>
+                    Puerta de Entrada
+                 <label class="toggle toggle-assertive">
+                   <input ng-model="Micro.door" ng-change="ChangeHandler('door')" type="checkbox">  <!--    Door  -->
+                   <div class="track">
+                     <div class="handle"></div>
+                   </div>
+                 </label>
+                </li>
+                <li class="item item-toggle">
+                    <i class="ion-coffee"></i>
+                    Cafetera
+                 <label class="toggle toggle-assertive">
+                   <input ng-model="Micro.coffee" ng-change="ChangeHandler('coffee')" type="checkbox">  <!--    Coffee  -->
+                   <div class="track">
+                     <div class="handle"></div>
+                   </div>
+                 </label>
+                </li>
+
+            </ul>
+        </div>
+    </ion-content>
+    
+    <!-- Alarm Audio -->
+    <audio preload="auto" id="audio">
+      <source src="alarm_sound.mp3" type="audio/mpeg">
+    </audio>
+
+</body>
+</html>
